@@ -14,23 +14,25 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Color _selected_color = Colors.grey;
-  GetStorage _storage = GetStorage("Storage");
+  GetStorage _storage = GetStorage(storage);
 
   void read() async {
-    var data = await _storage.read("app_bar_color");
+    var data = await _storage.read(app_bar_color);
     if (data != null) {
-      _selected_color = Color(data);
-    }
+      setState(() {
+        _selected_color = Color(data);
+      });
+    } else {}
   }
 
   void write() async {
-    await _storage.write("app_bar_color", _selected_color.value);
+    await _storage.write(app_bar_color, _selected_color.value);
   }
 
   @override
   void initState() {
-    super.initState();
     read();
+    super.initState();
   }
 
   @override
