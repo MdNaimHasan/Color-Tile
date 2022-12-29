@@ -10,3 +10,7 @@ List colors = [
   Colors.orange,
   Colors.black,
 ];
+
+String storage = "Storage";
+
+String app_bar_color = "AppBar_Color";
